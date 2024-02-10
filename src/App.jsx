@@ -5,6 +5,8 @@ import Confetti from 'react-confetti';
 import Love from './assets/gifs/love.gif';
 import Loving from './assets/gifs/loving.gif';
 
+import Created from './component/created';
+
 function App() {
   const { width, height } = useWindowSize();
   const [posistion, setPosition] = useState(0);
@@ -48,7 +50,7 @@ function App() {
   return (
     <section className="relative h-full w-full">
       {sayYes ? (
-        <span className="flex z-0">
+        <span className="flex z-0 relative">
           <Confetti
             tweenDuration={120000}
             width={width}
@@ -70,7 +72,7 @@ function App() {
           />
         </span>
       ) : null}
-      <div className="relative container mx-auto h-screen flex justify-center items-center flex-col gap-2 z-10">
+      <div className="relative container mx-auto h-screen flex justify-center items-center flex-col gap-2">
         <section className="flex justify-center">
           {sayYes ? (
             <img src={Loving} alt="loving" className="w-1/3" />
@@ -90,7 +92,7 @@ function App() {
           )}
         </section>
         {!sayYes && (
-          <section className="flex flex-row gap-3 items-center">
+          <section className="flex flex-row gap-3 items-center z-10">
             <button
               type="button"
               onClick={handleYesButtonClick}
@@ -109,6 +111,7 @@ function App() {
           </section>
         )}
       </div>
+      <Created />
     </section>
   );
 }
